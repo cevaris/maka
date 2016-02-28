@@ -9,10 +9,11 @@ class Activity < ActiveRecord::Base
     self.slug
   end
 
-  def self.search(q)
-    query = "%#{q}%"
-    title_match = arel_table[:title].matches(query)
-    description_match = arel_table[:description].matches(query)
-    where(title_match.or(description_match))
+  def self.search(query)
+    queries = query.split.map {|q| "%#{q}%"}
+    wheres = queries.map do |q|
+      "title ILIKE '#{q}' OR description ILIKE '#{q}'"
+    end.flatten.join(' OR ')
+    Activity.where(wheres)
   end
 end

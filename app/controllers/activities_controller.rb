@@ -6,7 +6,7 @@ class ActivitiesController < ApplicationController
   def index
     @activities = Activity.all
     if params[:q]
-      @activities = Activity.search(params[:q]).order("created_at DESC")
+      @activities = Activity.search(params[:q])
     end
   end
 
