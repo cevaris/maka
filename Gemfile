@@ -46,3 +46,5 @@ end
 
 gem 'devise'
 gem 'pg'
+gem "slim-rails"
+gem "twitter-bootstrap-rails"
