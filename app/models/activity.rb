@@ -10,7 +10,9 @@ class Activity < ActiveRecord::Base
   end
 
   def self.search(q)
-    where('title ILIKE ?', "%#{q}%")
-    where('description ILIKE ?', "%#{q}%")
+    query = "%#{q}%"
+    title_match = arel_table[:title].matches(query)
+    description_match = arel_table[:description].matches(query)
+    where(title_match.or(description_match))
   end
 end
