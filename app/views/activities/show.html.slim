@@ -1,0 +1,19 @@
+p
+  strong
+    | Title:
+  = @activity.title
+p
+  strong
+    | Creator:
+  = @activity.creator_id
+p
+  strong
+    | Slug:
+  = @activity.slug
+p
+  strong
+    | Description:
+  = @activity.description
+= link_to 'Edit', edit_activity_path(@activity)
+|  | 
+= link_to 'Back', activities_path
