@@ -10,7 +10,7 @@ class Activity < ActiveRecord::Base
   end
 
   def self.search(q)
-    where('name LIKE ?', "%#{q}%")
-    where('description LIKE ?', "%#{q}%")
+    where('title ILIKE ?', "%#{q}%")
+    where('description ILIKE ?', "%#{q}%")
   end
 end
