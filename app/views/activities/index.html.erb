@@ -1,7 +1,15 @@
 <p id="notice"><%= notice %></p>
 
+<%= form_tag(activities_path, :method => "get", id: "search-form") do %>
+  <%= text_field_tag :q, params[:q], placeholder: "Search Activities" %>
+  <%= submit_tag "Search" %>
+  <%= link_to 'Clear', activities_path %>
+<% end %>
+
+
 <h1>Listing Activities</h1>
 
+<% if @activities.present? %>
 <table>
   <thead>
     <tr>
@@ -15,18 +23,21 @@
 
   <tbody>
     <% @activities.each do |activity| %>
-      <tr>
-        <td><%= activity.creator_id %></td>
-        <td><%= activity.title %></td>
-        <td><%= activity.slug %></td>
-        <td><%= activity.description %></td>
-        <td><%= link_to 'Show', activity %></td>
-        <td><%= link_to 'Edit', edit_activity_path(activity) %></td>
-        <td><%= link_to 'Destroy', activity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <tr>
+      <td><%= activity.creator_id %></td>
+      <td><%= activity.title %></td>
+      <td><%= activity.slug %></td>
+      <td><%= activity.description %></td>
+      <td><%= link_to 'Show', activity %></td>
+      <td><%= link_to 'Edit', edit_activity_path(activity) %></td>
+      <td><%= link_to 'Destroy', activity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
     <% end %>
   </tbody>
 </table>
+<% else %>
+<p>There are no posts containing the term(s) <%= params[:q] %>.</p>
+<% end %>
 
 <br>
 

@@ -1,11 +1,16 @@
 class Activity < ActiveRecord::Base
+
   before_save :before_save_activity
   def before_save_activity
-    if self.slug.nil?
-      self.slug = "#{SecureRandom.hex(5)}-#{self.title.parameterize}"
-    end
+      self.slug = self.title.parameterize
   end
+
   def to_param
     self.slug
+  end
+
+  def self.search(q)
+    where('name LIKE ?', "%#{q}%")
+    where('description LIKE ?', "%#{q}%")
   end
 end

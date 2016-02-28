@@ -5,6 +5,9 @@ class ActivitiesController < ApplicationController
   # GET /activities.json
   def index
     @activities = Activity.all
+    if params[:q]
+      @activities = Activity.search(params[:q]).order("created_at DESC")
+    end
   end
 
   # GET /activities/1
