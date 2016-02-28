@@ -1,11 +1,15 @@
-= form_tag(activities_path, :method => "get", id: "search-form") do
-  = text_field_tag :q, params[:q], placeholder: "Search Activities"
-  = submit_tag "Search"
-  = link_to 'Clear', activities_path
+= form_tag(activities_path, :method => "get", id: "search-form", class: 'form-inline') do
+  .form-group
+    = text_field_tag :q, params[:q], placeholder: "Search Activities", class: 'form-control'
+  .form-group
+    = submit_tag 'Search', class: 'btn btn-default'
+  .form-group
+    = link_to 'Clear', activities_path, class: 'btn btn-default'
+
 h1
   | Listing Activities
 - if @activities.present?
-  table
+  table.table.table-condensed.table-hover
     thead
       tr
         th
