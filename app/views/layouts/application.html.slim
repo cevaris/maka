@@ -1,13 +1,16 @@
 doctype html
 html
   head
+    meta content="width=device-width, initial-scale=1" name="viewport"
     title
-      | Maka
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+      = t 'brand'
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
+
   body
     = render 'layouts/header'
     .container
+      = render 'layouts/messages'
       = yield
-      = render 'layouts/footer'
+    = render 'layouts/footer'
