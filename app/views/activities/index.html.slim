@@ -17,6 +17,8 @@ h1
         th
           | Title
         th
+          | Tags
+        th
           | Slug
         th
           | Description
@@ -28,6 +30,8 @@ h1
             = activity.creator_id
           td
             = activity.title
+          td
+            = activity.tag_list
           td
             = activity.slug
           td

@@ -44,7 +44,8 @@ group :development do
   gem 'spring'
 end
 
+gem 'acts-as-taggable-on'
 gem 'devise'
 gem 'pg'
-gem "slim-rails"
-gem "twitter-bootstrap-rails"
+gem 'slim-rails'
+gem 'twitter-bootstrap-rails'

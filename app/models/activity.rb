@@ -1,5 +1,7 @@
 class Activity < ActiveRecord::Base
 
+  acts_as_taggable_on :tags
+
   before_save :before_save_activity
   def before_save_activity
       self.slug = self.title.parameterize

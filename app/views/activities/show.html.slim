@@ -4,6 +4,10 @@ p
   = @activity.title
 p
   strong
+    | Tags:
+  = @activity.tag_list.to_s
+p
+  strong
     | Creator:
   = @activity.creator_id
 p
@@ -15,5 +19,5 @@ p
     | Description:
   = @activity.description
 = link_to 'Edit', edit_activity_path(@activity)
-|  | 
+|  |
 = link_to 'Back', activities_path
