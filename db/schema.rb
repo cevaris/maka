@@ -48,11 +48,12 @@ ActiveRecord::Schema.define(version: 20160306170327) do
   create_table "user_activities", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "activity_id"
-    t.integer  "status"
+    t.integer  "status",       default: 0
     t.datetime "accepted_at"
     t.datetime "completed_at"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "abandoned_at"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   create_table "users", force: :cascade do |t|

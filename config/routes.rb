@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  get 'user_activities/show'
+
+  get 'user_activities/new'
+
+  get 'user_activities/create'
+
+  get 'user_activities/edit'
+
+  get 'user_activities/update'
+
   resources :activities, param: :slug
   devise_for :users
   root to: 'pages#home'

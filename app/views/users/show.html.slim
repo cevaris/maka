@@ -1,9 +1,6 @@
-p
+h1
   strong
-    | User:
-  = @user.username
-
-
+    = @user.username
 
 h1
   | Completed Activities
@@ -26,8 +23,6 @@ h1
             = link_to 'Show', activity
           td
             = link_to 'Edit', edit_activity_path(activity)
-          td
-            = link_to 'Destroy', activity, method: :delete, data: { confirm: 'Are you sure?' }
 - else
   p
     | No activities completed
