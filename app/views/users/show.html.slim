@@ -1,0 +1,33 @@
+p
+  strong
+    | User:
+  = @user.username
+
+
+
+h1
+  | Completed Activities
+- if @user_activities.present?
+  table.table.table-condensed.table-hover
+    thead
+      tr
+        th
+          | Title
+        th
+          | Tags
+    tbody
+      - @user_activities.each do |user_activity|
+        tr
+          td
+            = user_activity.activity.title
+          td
+            = user_activity.activity.tag_list
+          td
+            = link_to 'Show', activity
+          td
+            = link_to 'Edit', edit_activity_path(activity)
+          td
+            = link_to 'Destroy', activity, method: :delete, data: { confirm: 'Are you sure?' }
+- else
+  p
+    | No activities completed
