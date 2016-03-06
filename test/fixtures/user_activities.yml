@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  activity_id: 1
+  status: 1
+  accepted_at: 2016-03-06 09:50:12
+  completed_at: 2016-03-06 09:50:12
+
+two:
+  user_id: 1
+  activity_id: 1
+  status: 1
+  accepted_at: 2016-03-06 09:50:12
+  completed_at: 2016-03-06 09:50:12
