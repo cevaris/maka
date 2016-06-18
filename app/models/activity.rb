@@ -7,10 +7,6 @@ class Activity < ActiveRecord::Base
       self.slug = self.title.parameterize
   end
 
-  def to_param
-    self.slug
-  end
-
   def self.search(query)
     queries = query.split.map {|q| "%#{q}%"}
     wheres = queries.map do |q|

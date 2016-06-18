@@ -1,0 +1,8 @@
+- if current_user
+  - UserActivity.next_status(user_activity.status).each do |title, next_status|
+    = form_for(user_activity) do |f|
+      = f.hidden_field :user_id, { :value => current_user.id }
+      = f.hidden_field :activity_id, { :value => activity.id }
+      = f.hidden_field :status, { :value => next_status }
+      .actions
+        = f.submit title

@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 
   def show
     @user_activities = @user.user_activities
+    
   end
 
   private

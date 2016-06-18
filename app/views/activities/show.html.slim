@@ -1,5 +1,6 @@
 div.pull-right
-  = render 'user_activities/status', activity: @activity
+  = render 'user_activities/status_form', user_activity: @user_activity, activity: @activity
+
 p
   strong
     | Title:
@@ -20,6 +21,7 @@ p
   strong
     | Description:
   = @activity.description
+
 = link_to 'Edit', edit_activity_path(@activity)
-|  |
+| |
 = link_to 'Back', activities_path

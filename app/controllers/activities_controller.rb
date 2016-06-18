@@ -13,6 +13,9 @@ class ActivitiesController < ApplicationController
   # GET /activities/1
   # GET /activities/1.json
   def show
+    if current_user
+      @user_activity = UserActivity.find_by(user_id: current_user.id, activity_id: @activity.id) || UserActivity.new
+    end
   end
 
   # GET /activities/new
@@ -66,13 +69,13 @@ class ActivitiesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_activity
-      @activity = Activity.find_by_slug(params[:slug])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_activity
+    @activity = Activity.find_by_slug(params[:id]) || Activity.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def activity_params
-      params.require(:activity).permit(:creator_id, :title, :slug, :description, :tag_list)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def activity_params
+    params.require(:activity).permit(:creator_id, :title, :slug, :description, :tag_list)
+  end
 end

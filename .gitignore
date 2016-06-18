@@ -19,3 +19,5 @@
 capybara-*.html
 pickle-email-*.html
 rerun.txt
+.idea
+*.iml
